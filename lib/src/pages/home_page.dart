@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:hidden_drawer_menu/hidden_drawer/hidden_drawer_menu.dart';
 import 'package:neumorphicbuttoni/src/provider/change_appbar_color.dart';
 import 'package:neumorphicbuttoni/src/widgets/bottom_nav_bar.dart';
+import 'package:neumorphicbuttoni/src/widgets/hidden_drawer.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,8 +15,20 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     ChangeAppBarColor myCurrentColor = Provider.of<ChangeAppBarColor>(context);
 
+    List<ScreenHiddenDrawer> mynewList = [
+      ScreenHiddenDrawer(
+        new ItemHiddenMenu(
+          name: "Screen 1",
+          baseStyle: TextStyle(
+              color: NeumorphicTheme.baseColor(context), fontSize: 28.0),
+          colorLineSelected: NeumorphicTheme.accentColor(context),
+        ),
+        HomePage(),
+      ),
+    ];
+
     return Scaffold(
-      drawer: Drawer(
+      /*Drawer(
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,
@@ -67,12 +81,30 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      /*appBar: AppBar(
-        backgroundColor: myCurrentColor.baseColor,
-        title: Text(
-          'MyAppBar',
+      appBar: AppBar(
+        backgroundColor: NeumorphicTheme.baseColor(context),
+        title: Row(
+          children: <Widget>[
+            IconButton(
+              icon: Icon(
+                Icons.settings,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => MyHiddenDrawer(),
+                  ),
+                );
+              },
+            ),
+            Text(
+              'MyAppBar',
+            ),
+          ],
         ),
-      ),*/
+      ),
+      */
       backgroundColor: NeumorphicTheme.baseColor(context),
       body: Center(
         child: Column(
@@ -105,9 +137,6 @@ class _HomePageState extends State<HomePage> {
                     NeumorphicTheme.isUsingDark(context)
                         ? UsedTheme.LIGHT
                         : UsedTheme.DARK;
-                NeumorphicTheme.isUsingDark(context)
-                    ? myCurrentColor.setBaseColor = Colors.red
-                    : myCurrentColor.setBaseColor = Colors.blue;
               },
             ),
             NeumorphicButton(

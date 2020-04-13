@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:hidden_drawer_menu/simple_hidden_drawer/provider/simple_hidden_drawer_provider.dart';
+import 'package:hidden_drawer_menu/simple_hidden_drawer/simple_hidden_drawer.dart';
+import 'package:neumorphicbuttoni/src/pages/home_page.dart';
 import 'package:provider/provider.dart';
 import 'src/provider/change_appbar_color.dart';
 import 'src/widgets/hidden_drawer.dart';
+import 'src/widgets/simple_hidden_drawer.dart';
 
 void main() => runApp(MyApp());
 
@@ -45,7 +49,8 @@ class MyApp extends StatelessWidget {
             lightSource: myLight,
             depth: 6,
           ),
-          child: MyHiddenDrawer(),
+          child: //MyHiddenDrawer(),
+              SimpleHidden(),
         ),
       ),
     );
