@@ -27,11 +27,24 @@ class _MenuState extends State<Menu> {
               child: Text("Menu 1"),
             ),
             RaisedButton(
-                onPressed: () {
-                  SimpleHiddenDrawerProvider.of(context)
-                      .setSelectedMenuPosition(1);
-                },
-                child: Text("Menu 2"))
+              onPressed: () {
+                SimpleHiddenDrawerProvider.of(context)
+                    .setSelectedMenuPosition(1);
+              },
+              child: Text("Menu 2"),
+            ),
+            RaisedButton(
+              child: Text(
+                'Change theme',
+              ),
+              onPressed: () {
+                NeumorphicTheme.of(context).usedTheme =
+                    NeumorphicTheme.isUsingDark(context)
+                        ? UsedTheme.LIGHT
+                        : UsedTheme.DARK;
+                SimpleHiddenDrawerProvider.of(context).toggle();
+              },
+            ),
           ],
         ),
       ),

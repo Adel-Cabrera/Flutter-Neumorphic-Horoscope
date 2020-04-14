@@ -22,18 +22,18 @@ class _MyBottomCurvedNavBarState extends State<MyBottomCurvedNavBar> {
         Builder(
           builder: (context) => Container(
             child: Icon(
-              Icons.add,
+              Icons.ac_unit,
               size: 30,
-              color: NeumorphicTheme.variantColor(context),
+              color: NeumorphicTheme.baseColor(context),
             ),
           ),
         ),
         Builder(
           builder: (context) => Container(
             child: Icon(
-              Icons.add,
+              Icons.account_box,
               size: 30,
-              color: NeumorphicTheme.variantColor(context),
+              color: NeumorphicTheme.baseColor(context),
             ),
           ),
         ),
