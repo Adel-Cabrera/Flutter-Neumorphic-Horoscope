@@ -15,32 +15,28 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         backgroundColor: NeumorphicTheme.baseColor(context),
         body: SingleChildScrollView(
-          child: Container(
-            //height: MediaQuery.of(context).size.height,
-            child: Column(
-              children: <Widget>[
-                Neumorphic(
-                  margin: EdgeInsets.all(
-                    15.0,
-                  ),
-                  padding: EdgeInsets.all(
-                    15.0,
-                  ),
-                  boxShape: NeumorphicBoxShape.roundRect(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  style: NeumorphicStyle(
-                    intensity: NeumorphicTheme.intensity(context),
-                    shape: NeumorphicShape.flat,
-                    depth: NeumorphicTheme.depth(context),
-                    lightSource:
-                        NeumorphicTheme.of(context).current.lightSource,
-                    color: NeumorphicTheme.baseColor(context),
-                  ),
-                  child: CarouselSigns(),
+          child: Column(
+            children: <Widget>[
+              Neumorphic(
+                margin: EdgeInsets.all(
+                  15.0,
                 ),
-              ],
-            ),
+                padding: EdgeInsets.all(
+                  15.0,
+                ),
+                boxShape: NeumorphicBoxShape.roundRect(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                style: NeumorphicStyle(
+                  intensity: NeumorphicTheme.intensity(context),
+                  shape: NeumorphicShape.flat,
+                  depth: NeumorphicTheme.depth(context),
+                  lightSource: NeumorphicTheme.of(context).current.lightSource,
+                  color: NeumorphicTheme.baseColor(context),
+                ),
+                child: CarouselSigns(),
+              ),
+            ],
           ),
         ),
         bottomNavigationBar: MyBottomCurvedNavBar(),
