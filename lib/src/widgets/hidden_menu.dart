@@ -24,14 +24,14 @@ class _MenuState extends State<Menu> {
                 SimpleHiddenDrawerProvider.of(context)
                     .setSelectedMenuPosition(0);
               },
-              child: Text("Menu 1"),
+              child: Text("Home Page"),
             ),
             RaisedButton(
               onPressed: () {
                 SimpleHiddenDrawerProvider.of(context)
                     .setSelectedMenuPosition(1);
               },
-              child: Text("Menu 2"),
+              child: Text("Tarot Page"),
             ),
             RaisedButton(
               child: Text(

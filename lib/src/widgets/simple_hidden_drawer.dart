@@ -3,6 +3,10 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:hidden_drawer_menu/hidden_drawer/hidden_drawer_menu.dart';
 import 'package:hidden_drawer_menu/simple_hidden_drawer/simple_hidden_drawer.dart';
 import 'package:neumorphicbuttoni/src/pages/home_page.dart';
+import 'package:neumorphicbuttoni/src/pages/tarot_page.dart';
+import 'package:neumorphicbuttoni/src/provider/change_current_page_btmnavbar.dart';
+import 'package:neumorphicbuttoni/src/widgets/bottom_nav_bar.dart';
+import 'package:provider/provider.dart';
 
 import 'hidden_menu.dart';
 
@@ -14,6 +18,8 @@ class SimpleHidden extends StatefulWidget {
 class _SimpleHiddenState extends State<SimpleHidden> {
   @override
   Widget build(BuildContext context) {
+    ChangeCurrentPage _changePage = Provider.of<ChangeCurrentPage>(context);
+
     return SimpleHiddenDrawer(
       curveAnimation: Curves.decelerate,
       isDraggable: true,
@@ -29,12 +35,19 @@ class _SimpleHiddenState extends State<SimpleHidden> {
         switch (position) {
           case 0:
             screenCurrent = HomePage();
+            _changePage.setCurrentPage = screenCurrent;
+            _changePage.setPageIndex = 0;
             break;
           case 1:
-            screenCurrent = HomePage();
+            screenCurrent = TarotPage();
+            _changePage.setCurrentPage = screenCurrent;
+            _changePage.setPageIndex = 1;
+
             break;
           case 2:
             screenCurrent = HomePage();
+            _changePage.setCurrentPage = screenCurrent;
+
             break;
         }
 
@@ -60,12 +73,14 @@ class MyScaffold extends StatefulWidget {
 class _MyScaffoldState extends State<MyScaffold> {
   @override
   Widget build(BuildContext context) {
+    ChangeCurrentPage _changePage = Provider.of<ChangeCurrentPage>(context);
+
     return StatefulBuilder(
       builder: (context, setState) => SafeArea(
         child: Scaffold(
           appBar: AppBar(
             title: Text(
-              'Page ${widget.screenCurrent}',
+              'Premium Horoscope',
             ),
             backgroundColor: NeumorphicTheme.baseColor(context),
             leading: IconButton(
@@ -77,7 +92,8 @@ class _MyScaffoldState extends State<MyScaffold> {
                   widget.controller.toggle();
                 }),
           ),
-          body: widget.screenCurrent,
+          body: _changePage.currentPage,
+          bottomNavigationBar: MyBottomCurvedNavBar(),
         ),
       ),
     );

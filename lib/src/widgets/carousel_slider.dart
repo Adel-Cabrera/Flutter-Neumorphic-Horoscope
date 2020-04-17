@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
@@ -8,24 +7,20 @@ class CarouselSigns extends StatefulWidget {
   _CarouselSignsState createState() => _CarouselSignsState();
 }
 
-enum Page { FIRST, SECOND }
-
 class _CarouselSignsState extends State<CarouselSigns> {
-  Page page;
-
   Map mySigns = {
     'Aries': 'March 21 - April 20',
     'Taurus': 'April 21 – May 21',
     'Gemini': 'May 22 – June 21',
-    'Cancer': 'March 21 - April 20',
-    'Leo': 'April 21 – May 21',
-    'Virgo': 'May 22 – June 21',
-    'Libra': 'March 21 - April 20',
-    'Scorpio': 'April 21 – May 21',
-    'Sagittarius': 'May 22 – June 21',
-    'Capricorn': 'March 21 - April 20',
-    'Aquarius': 'April 21 – May 21',
-    'Pisces': 'May 22 – June 21',
+    'Cancer': 'June 22 – July 22',
+    'Leo': 'July 23 – Aug 23',
+    'Virgo': 'Aug 24 – Sep 22',
+    'Libra': 'Sep 23 – Oct 23',
+    'Scorpio': 'Oct 24 – Nov 22',
+    'Sagittarius': 'Nov 23 – Dec 21',
+    'Capricorn': 'Dec 22 – Jan 20',
+    'Aquarius': 'Jan 21 – Feb 18',
+    'Pisces': 'Feb 19 - March 20',
   };
 
   static List<Widget> mySignsWidgets = [];
@@ -92,6 +87,8 @@ class _CarouselSignsState extends State<CarouselSigns> {
   }
 
   bool _indexWidget = false;
+  bool myBool = true;
+
   static List list1 = mySignsWidgets.sublist(0, 3);
   static List list2 = mySignsWidgets.sublist(3, 6);
   static List list3 = mySignsWidgets.sublist(6, 9);
@@ -106,6 +103,9 @@ class _CarouselSignsState extends State<CarouselSigns> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: list1,
+          ),
+          SizedBox(
+            height: 10.0,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -123,6 +123,9 @@ class _CarouselSignsState extends State<CarouselSigns> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: list3,
         ),
+        SizedBox(
+          height: 10.0,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: list4,
@@ -130,8 +133,6 @@ class _CarouselSignsState extends State<CarouselSigns> {
       ],
     );
   }
-
-  bool myBool = true;
 
   @override
   Widget build(BuildContext context) {
@@ -154,11 +155,12 @@ class _CarouselSignsState extends State<CarouselSigns> {
               children: <Widget>[
                 NeumorphicButton(
                   pressed: true,
+                  padding: EdgeInsets.all(
+                    10.0,
+                  ),
                   isEnabled: false,
                   style: NeumorphicStyle(
-                    color: myBool
-                        ? NeumorphicTheme.variantColor(context)
-                        : NeumorphicTheme.accentColor(context),
+                    color: NeumorphicTheme.baseColor(context),
                     shape: myBool
                         ? NeumorphicShape.concave
                         : NeumorphicShape.convex,
@@ -176,10 +178,11 @@ class _CarouselSignsState extends State<CarouselSigns> {
                 NeumorphicButton(
                   pressed: true,
                   isEnabled: false,
+                  padding: EdgeInsets.all(
+                    10.0,
+                  ),
                   style: NeumorphicStyle(
-                    color: myBool
-                        ? NeumorphicTheme.accentColor(context)
-                        : NeumorphicTheme.variantColor(context),
+                    color: NeumorphicTheme.baseColor(context),
                     shape: myBool
                         ? NeumorphicShape.convex
                         : NeumorphicShape.concave,
@@ -213,21 +216,35 @@ class _CarouselSignsState extends State<CarouselSigns> {
                 );
               },
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   myBool
                       ? Text('')
-                      : Icon(
-                          Icons.navigate_before,
+                      : Builder(
+                          builder: (context) => Icon(
+                            Icons.navigate_before,
+                            color: _textColor(context),
+                          ),
                         ),
-                  Text(
-                    'HW',
-                    style: TextStyle(
-                      color: _textColor(context),
-                    ),
-                  ),
                   myBool
-                      ? Icon(
-                          Icons.navigate_next,
+                      ? Text(
+                          'Next',
+                          style: TextStyle(
+                            color: _textColor(context),
+                          ),
+                        )
+                      : Text(
+                          'Prev',
+                          style: TextStyle(
+                            color: _textColor(context),
+                          ),
+                        ),
+                  myBool
+                      ? Builder(
+                          builder: (context) => Icon(
+                            Icons.navigate_next,
+                            color: _textColor(context),
+                          ),
                         )
                       : Text(''),
                 ],

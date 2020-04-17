@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:neumorphicbuttoni/src/widgets/bottom_nav_bar.dart';
 import 'package:neumorphicbuttoni/src/widgets/carousel_slider.dart';
+import 'package:neumorphicbuttoni/src/widgets/elements_signs.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -36,10 +37,16 @@ class _HomePageState extends State<HomePage> {
                 ),
                 child: CarouselSigns(),
               ),
+              SizedBox(
+                height: 30.0,
+              ),
+              MyElementsSigns(),
+              SizedBox(
+                height: 50.0,
+              ),
             ],
           ),
         ),
-        bottomNavigationBar: MyBottomCurvedNavBar(),
       ),
     );
   }
