@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:neumorphicbuttoni/src/pages/home_page.dart';
+import 'package:neumorphicbuttoni/src/pages/single_card_detail_page.dart';
+import 'package:neumorphicbuttoni/src/pages/tarot_page.dart';
 import 'package:neumorphicbuttoni/src/provider/change_current_page_btmnavbar.dart';
 import 'package:provider/provider.dart';
 import 'src/widgets/simple_hidden_drawer.dart';
@@ -20,8 +23,13 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
+        initialRoute: '/',
+        routes: {
+          '/tarot': (context) => TarotPage(),
+          '/detail': (context) => SingleCardDetailPage(),
+        },
         theme: ThemeData(
-          primarySwatch: Colors.purple,
+          scaffoldBackgroundColor: Color(0xFFcc34a1),
         ),
         home: NeumorphicTheme(
           usedTheme: UsedTheme.LIGHT,

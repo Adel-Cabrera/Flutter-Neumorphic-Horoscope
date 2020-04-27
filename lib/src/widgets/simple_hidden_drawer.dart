@@ -3,6 +3,7 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:hidden_drawer_menu/hidden_drawer/hidden_drawer_menu.dart';
 import 'package:hidden_drawer_menu/simple_hidden_drawer/simple_hidden_drawer.dart';
 import 'package:neumorphicbuttoni/src/pages/home_page.dart';
+import 'package:neumorphicbuttoni/src/pages/prueba.dart';
 import 'package:neumorphicbuttoni/src/pages/tarot_page.dart';
 import 'package:neumorphicbuttoni/src/provider/change_current_page_btmnavbar.dart';
 import 'package:neumorphicbuttoni/src/widgets/bottom_nav_bar.dart';
@@ -45,7 +46,7 @@ class _SimpleHiddenState extends State<SimpleHidden> {
 
             break;
           case 2:
-            screenCurrent = HomePage();
+            screenCurrent = MyHomePage();
             _changePage.setCurrentPage = screenCurrent;
 
             break;

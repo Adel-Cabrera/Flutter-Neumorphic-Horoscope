@@ -34,6 +34,13 @@ class _MenuState extends State<Menu> {
               child: Text("Tarot Page"),
             ),
             RaisedButton(
+              onPressed: () {
+                SimpleHiddenDrawerProvider.of(context)
+                    .setSelectedMenuPosition(2);
+              },
+              child: Text("Prueba Page"),
+            ),
+            RaisedButton(
               child: Text(
                 'Change theme',
               ),

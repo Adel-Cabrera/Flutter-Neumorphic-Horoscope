@@ -30,7 +30,7 @@ dependencies:
   flutter_html: ^0.11.1
   provider: ^4.0.4
   deck_scrollview: ^0.1.0
-
+  flip_card: ^0.4.4
 
 dev_dependencies:
   flutter_test:
@@ -51,6 +51,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/images/tarot/
+
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
